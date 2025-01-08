@@ -11,6 +11,7 @@ import torch
 from opacus.grad_sample import GradSampleModule
 from scipy.stats import planck
 from torch import nn
+import numpy as np
 
 from . import privacy_analysis
 from .dp_model_inspector import DPModelInspector
@@ -233,7 +234,7 @@ class PrivacyEngine:
             )
             with warnings.catch_warnings():
                 warnings.simplefilter("ignore")
-                self.seed = int.from_bytes(os.urandom(8), byteorder="big", signed=True)
+                self.seed = np.random.randint(0)
                 self.random_number_generator = self._set_seed(self.seed)
 
         self.validator = DPModelInspector()
