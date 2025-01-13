@@ -234,7 +234,7 @@ class PrivacyEngine:
             )
             with warnings.catch_warnings():
                 warnings.simplefilter("ignore")
-                self.seed = np.random.randint(0)
+                self.seed = np.random.randint(0, 1000000)
                 self.random_number_generator = self._set_seed(self.seed)
 
         self.validator = DPModelInspector()
