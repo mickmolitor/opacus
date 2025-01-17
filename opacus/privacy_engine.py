@@ -655,6 +655,4 @@ class PrivacyEngine:
                 self.avg_batch_size = self.sample_rate * self.sample_size
 
         if self.sample_rate > 1.0:
-            raise ValueError(
-                f"sample_rate={self.sample_rate} is not a valid value. Please provide a float between 0 and 1."
-            )
+            self.sample_rate = 1.0
